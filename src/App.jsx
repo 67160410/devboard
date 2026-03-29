@@ -1,6 +1,7 @@
 import Navbar from "./components/Navbar";
 import PostCard from "./components/PostCard";
 import PostList from "./components/PostList";
+import UserCard from "./components/UserCard";
 
 
 function App() {
@@ -38,6 +39,7 @@ function App() {
       <Navbar />
       <PostCard title="ทดสอบ" body="นี่คือเนื้อหาทดสอบ" />
       <PostList posts={POSTS} />
+      <UserCard name="สมชาย ใจดี" email="somchai@dev.com" />
     </>
   );
 }
