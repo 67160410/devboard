@@ -1,5 +1,6 @@
 import { useState, useEffect } from "react";
 import PostCard from "./PostCard";
+import PostCount from "./PostCount";
 import LoadingSpinner from "./LoadingSpinner";
 
 function PostList({ favorites, onToggleFavorite }) {
@@ -13,7 +14,6 @@ function PostList({ favorites, onToggleFavorite }) {
     try {
       setLoading(true);
       setError(null);
-
       const res = await fetch("https://jsonplaceholder.typicode.com/posts");
       if (!res.ok) throw new Error("ดึงข้อมูลไม่สำเร็จ");
 
@@ -71,7 +71,6 @@ function PostList({ favorites, onToggleFavorite }) {
         >
           โพสต์ล่าสุด
         </h2>
-
         <button
           onClick={fetchPosts}
           style={{
@@ -86,6 +85,8 @@ function PostList({ favorites, onToggleFavorite }) {
           🔄 โหลดใหม่
         </button>
       </div>
+      {/* แสดงจำนวนโพสต์ทั้งหมด */}
+      <PostCount count={posts.length} />
 
       <input
         type="text"
